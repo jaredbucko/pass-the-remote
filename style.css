@@ -1,0 +1,20 @@
+body {
+    background-color: #adadad;
+}
+
+#film-icon {
+    padding: 0 0 0 20px
+}
+
+h1 {
+    color: azure;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+
+}
+#Start {
+    background-color: #17252a;
+}
+#start-card {
+    font-size: 16pt;
+}
