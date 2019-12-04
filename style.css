@@ -1,0 +1,47 @@
+body {
+    background-color: #adadad; 
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+#film-icon {
+    padding: 0 0 0 20px
+}
+
+h1 {
+    color: azure;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+#main-container {
+}
+
+
+#pass-start {
+    background-color: #17252a;
+    text-align: center;
+    display: flex;
+}
+#start-card {
+    font-size: 16pt;
+}
+
+p {
+    font-family: 'Dosis', sans-serif;
+    text-align: center;
+    
+}
+
+main {
+    flex: 1 0 auto;
+  }
+.page-footer {
+    background-color: #501b1d;
+}
+
+#tmdb-icon {
+    height: 30px;
+    float: right;
+}
