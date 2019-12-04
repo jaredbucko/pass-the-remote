@@ -8,13 +8,17 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- ref to our style.css -->
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Link to icon and google fonts-->
     <script src="https://kit.fontawesome.com/eb2106c888.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis&display=swap" rel="stylesheet">
 
     <title>Pass the Remote</title>
 </head>
 <body>
+
+  <!--Navbar (if we want it) -->
         <nav>
                 <div class="nav-wrapper">
                 <nav style="background-color: #501b1d">
@@ -23,23 +27,25 @@
                   </ul>
                 </div>
               </nav>
-            
-    <div id="main-container" class="container">
+
+<!-- Main Container with card(s) -->
+    <main>   
+    <div id="main-container" class="container" style="text-align: center">
         <section class="main-section">
             <h1> Welcome to Pass the Remote</h1>
                 <div class="row">
-                        <div class="col s12">
+                        <div class="col s12" style= "padding: ">
+                          
                           <div class="card">
                             <div class="card-content black-text" id="start-card">
                               <span class="card-title"></span>
-                              <p>Feeling indecisive in a sea of movies and television? Click the button below, follow our questionnaire and we'll find something you might like!</p>
+                              <p>Feeling indecisive in a sea of movies and television? </p>
+                              <br>
+                              <p>Click the button below, follow our questionnaire and we'll find something you might like!</p>
+                              <br>
                             </div>
-<<<<<<< HEAD
-                            <a class="waves-effect btn-large" id="Start"><i class="material-icons right">arrow_forward</i>Get Started!</a>
-=======
-                            <a class="waves-effect waves-light btn-large"><i class="material-icons right">arrow_forward</i>Pass The Remote</a>
->>>>>>> 2c6c78d94759d5623190322a05cfc2746de8dafd
-                            </div>
+                            <a class="btn waves-effect waves-light btn-large"id="pass-start"><i class="material-icons right">arrow_forward</i>Pass The Remote</a>
+                          </div>
                           </div>
                         </div>
                       </div>
@@ -47,8 +53,25 @@
             
                 
         </section>
+        </main>
+        
+        <!--another container for results-->
+
+
+
+
+
+
+        <!--footer-->
         <footer>
-            <img src="assets/tmbd-logo.png" alt="The Movie Database">
+            <footer class="page-footer">
+                <div class="footer-copyright">
+                  <div class="container">
+                  © 2019 Copyright
+                  <img src="assets/tmbd-logo.png" id="tmdb-icon"  alt="The Movie Database">
+                  </div>
+                </div>
+          
         </footer>    
     </div>
 
