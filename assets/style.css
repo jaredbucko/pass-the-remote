@@ -5,6 +5,10 @@ body {
     flex-direction: column;
 }
 
+.container {
+    text-align: center;
+}
+
 #film-icon {
     padding: 0 0 0 20px;
 }
@@ -16,6 +20,11 @@ h1 {
 }
 
 h3 {
+    margin: 0 0 10px 0;
+    font-family: 'Bebas Neue', cursive;
+}
+
+h4 {
     margin: 0 0 10px 0;
     font-family: 'Bebas Neue', cursive;
 }
