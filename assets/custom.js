@@ -95,5 +95,28 @@ tvRecommendation();
 
 
 
+// hide other cards on load
+$(function () {
+  $('#promptCard1, #promptCard2, #promptCard3, #promptCard4, #loadingCard, #resultCard').hide();
+});
 
+// function that Animation.css needs
+function animateCSS(element, animationName, callback) {
+  const node = document.querySelector(element)
+  node.classList.add('animated', animationName)
+
+  function handleAnimationEnd() {
+      node.classList.remove('animated', animationName)
+      node.removeEventListener('animationend', handleAnimationEnd)
+
+      if (typeof callback === 'function') callback()
+  }
+
+  node.addEventListener('animationend', handleAnimationEnd)
+}
+
+// "Pass the Remote" button onclick function with animation
+$('#startBtn').click (function(){
+  animateCSS('#startBtn', 'zoomOutRight')
+});
 
