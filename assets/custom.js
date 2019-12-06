@@ -115,8 +115,78 @@ function animateCSS(element, animationName, callback) {
   node.addEventListener('animationend', handleAnimationEnd)
 }
 
-// "Pass the Remote" button onclick function with animation
+// Button onclick function with animation through all Questionnaire cards //
 $('#startBtn').click (function(){
-  animateCSS('#startBtn', 'zoomOutRight')
+  $(function () {
+    $('#introCard').hide()
+  });
+
+  $(function () {
+    $('#promptCard1').show()
+    animateCSS('#promptCard1', 'fadeInLeft')
+  });
 });
+
+$('#promptCard1').click (function(){
+  $(function () {
+    $('#promptCard1').hide()
+  });
+
+  $(function () {
+    $('#promptCard2').show()
+    animateCSS('#promptCard2', 'fadeInRight')
+  });
+});
+
+$('#promptCard2').click (function(){
+  $(function () {
+    $('#promptCard2').hide()
+  });
+
+  $(function () {
+    $('#promptCard3').show()
+    animateCSS('#promptCard3', 'fadeInLeft')
+  });
+});
+
+$('#promptCard3').click (function(){
+  $(function () {
+    $('#promptCard3').hide()
+  });
+
+  $(function () {
+    $('#promptCard4').show()
+    animateCSS('#promptCard4', 'fadeInRight')
+  });
+});
+
+// Show loading card
+
+$('#promptCard4').click (function(){
+  $(function () {
+    $('#promptCard4').hide()
+  });
+
+  $(function () {
+    $('#loadingCard').show()
+    animateCSS('#loadingCard', 'fadeInUp')
+  });
+});
+
+// Show result card
+
+// need to put animation delay for result card to show after x seconds
+
+$('#loadingCard').click (function(){
+  $(function () {
+    $('loading').hide()
+  });
+
+  $(function () {
+    $('#resultCard').show()
+    animateCSS('#resultCard', 'fadeInUp')
+  });
+});
+
+
 
