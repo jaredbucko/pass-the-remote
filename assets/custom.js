@@ -52,8 +52,18 @@ function movieRecommendation() {
       var meta = parseInt(response.Ratings[2].Value);
       console.log(meta);
     });
+    var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
+    $.ajax({
+      url: ytQuery,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response)
+      var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
+      $("#resultCard").append(trailer);
+      });
 
   });
+    
 };
 
 movieRecommendation();
@@ -82,21 +92,7 @@ function tvRecommendation() {
 
 tvRecommendation();
 
-function trailer(){
-var newRec = "Knives Out";
-var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + newRec + "&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
-$.ajax({
-  url: ytQuery,
-  method: "GET"
-}).then(function(response) {
-console.log(response)
-var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
-$("#resultCard").append(trailer);
-});
-};
 
-
-trailer();
 
 
 // hide other cards on load
@@ -119,14 +115,81 @@ function animateCSS(element, animationName, callback) {
   node.addEventListener('animationend', handleAnimationEnd)
 }
 
-// "Pass the Remote" button onclick function with animation
+// Button onclick function with animation through all Questionnaire cards //
 $('#startBtn').click (function(){
   animateCSS('#startBtn', 'zoomOutRight')
 });
 
+  $(function () {
+    $('#introCard').hide()
+  });
 
+  $(function () {
+    $('#promptCard1').show()
+    animateCSS('#promptCard1', 'fadeInLeft')
+  });
+});
 
+$('#promptCard1').click (function(){
+  $(function () {
+    $('#promptCard1').hide()
+  });
 
+  $(function () {
+    $('#promptCard2').show()
+    animateCSS('#promptCard2', 'fadeInRight')
+  });
+});
+
+$('#promptCard2').click (function(){
+  $(function () {
+    $('#promptCard2').hide()
+  });
+
+  $(function () {
+    $('#promptCard3').show()
+    animateCSS('#promptCard3', 'fadeInLeft')
+  });
+});
+
+$('#promptCard3').click (function(){
+  $(function () {
+    $('#promptCard3').hide()
+  });
+
+  $(function () {
+    $('#promptCard4').show()
+    animateCSS('#promptCard4', 'fadeInRight')
+  });
+});
+
+// Show loading card
+
+$('#promptCard4').click (function(){
+  $(function () {
+    $('#promptCard4').hide()
+  });
+
+  $(function () {
+    $('#loadingCard').show()
+    animateCSS('#loadingCard', 'fadeInUp')
+  });
+});
+
+// Show result card
+
+// need to put animation delay for result card to show after x seconds
+
+$('#loadingCard').click (function(){
+  $(function () {
+    $('loading').hide()
+  });
+
+  $(function () {
+    $('#resultCard').show()
+    animateCSS('#resultCard', 'fadeInUp')
+  });
+});
 
 // javascript from materialize for hamburger nav
 $(document).ready(function(){
