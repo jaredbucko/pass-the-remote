@@ -123,3 +123,12 @@ function animateCSS(element, animationName, callback) {
 $('#startBtn').click (function(){
   animateCSS('#startBtn', 'zoomOutRight')
 });
+
+
+
+
+
+// javascript from materialize for hamburger nav
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
