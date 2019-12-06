@@ -24,13 +24,21 @@
 <body>
 
   <!--Navbar (if we want it) -->
+  <!-- Nav turns to hamburger when sized for mobile-->
   <nav>
-    <div class="nav-wrapper">
-      <nav style="background-color: #501b1d">
-      <i class="fas fa-film" id="film-icon"></i>
-      <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
-    </div>
-  </nav>
+      <div class="navbar-fixed">
+      <nav style="background-color: #501b1d">  
+        <a href="#!" class="brand-logo"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="">Open Space</a></li>
+        </ul>
+      </div>
+    </nav>
+  
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="">something</a></li>
+    </ul>
 
   <!-- Main Container with card(s) -->
   <main>
@@ -45,6 +53,8 @@
           <p>Just answer a few questions and we'll recommend something you might like!</p>
           <br>
           <button class="btn waves-effect waves-light btn-large" id="startBtn"><i class="material-icons right">arrow_forward</i>Pass The Remote</button>
+          <!--other icon options: movie_creation, movie_filter, videogame_asset, local_movies, local_play, -->
+          <!-- put after i class-->
         </div>
       </div>
     </div>

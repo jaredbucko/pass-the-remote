@@ -117,6 +117,9 @@ function animateCSS(element, animationName, callback) {
 
 // Button onclick function with animation through all Questionnaire cards //
 $('#startBtn').click (function(){
+  animateCSS('#startBtn', 'zoomOutRight')
+});
+
   $(function () {
     $('#introCard').hide()
   });
@@ -188,5 +191,7 @@ $('#loadingCard').click (function(){
   });
 });
 
-
-
+// javascript from materialize for hamburger nav
+$(document).ready(function(){
+  $('.sidenav').sidenav();
+});
