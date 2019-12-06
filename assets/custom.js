@@ -63,3 +63,19 @@ function tvRecommendation() {
 };
 
 tvRecommendation();
+
+function trailer(){
+var newRec = "Knives Out";
+var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + newRec + "&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
+$.ajax({
+  url: ytQuery,
+  method: "GET"
+}).then(function(response) {
+console.log(response)
+var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
+$("#resultCard").append(trailer);
+});
+};
+
+
+trailer();
