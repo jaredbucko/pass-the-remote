@@ -5,8 +5,12 @@ body {
     flex-direction: column;
 }
 
+.container {
+    text-align: center;
+}
+
 #film-icon {
-    padding: 0 0 0 20px
+    padding: 0 0 0 20px;
 }
 
 h1 {
@@ -15,15 +19,22 @@ h1 {
     font-family: 'Bebas Neue', cursive;
 }
 
-#main-container {
+h3 {
+    margin: 0 0 10px 0;
+    font-family: 'Bebas Neue', cursive;
 }
 
+h4 {
+    margin: 0 0 10px 0;
+    font-family: 'Bebas Neue', cursive;
+}
 
 #pass-start {
     background-color: #17252a;
     text-align: center;
     display: flex;
 }
+
 #start-card {
     font-size: 16pt;
 }
@@ -31,12 +42,13 @@ h1 {
 p {
     font-family: 'Dosis', sans-serif;
     text-align: center;
-    
+    padding: 5px 0 5px 0;
 }
 
 main {
     flex: 1 0 auto;
   }
+
 .page-footer {
     background-color: #501b1d;
 }
