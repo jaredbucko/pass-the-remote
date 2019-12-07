@@ -76,32 +76,12 @@ function tvRecommendation() {
     var x = parseInt(Math.random()*response.results.length);
     var series = response.results[x].original_name;
     console.log(series);
-    $.ajax({
-      url: "http://www.omdbapi.com/?apikey=63f86544&t=" + series,
-      type: "GET",
-    }).then(function(response) {
-      console.log(response);
-      var imdb = parseFloat(response.Ratings[0].Value)*10;
-      console.log(imdb);
-      var rotten = parseInt(response.Ratings[1].Value);
-      console.log(rotten);
-      var meta = parseInt(response.Ratings[2].Value);
-      console.log(meta);
+    var poster = $('<img>').attr('src', response.results[x].poster_path);
+    var title = $('<p>').text(response.results[x].name);
+    var plot = $('<p>').text('Synopsis: ' + response.results[x].overview);
+    var runtime = $('<p>').text('Aired: ' + response.results[x].first_air_date);
+    $('#resultCard').append(title, poster, runtime, rating, cast, plot);
 
-
-      var poster = $('<img>').attr('src', response.Poster);
-      console.log(poster);
-      var title = $('<h2>').text(response.Title);
-      console.log(title);
-      var cast = $('<p>').text('Main Cast: ' + response.Actors);
-      console.log(cast);
-      var plot = $('<p>').text('Synopsis: ' + response.Plot);
-      console.log(plot);
-      var runtime = $('<p>').text('Aired: ' + response.Year);
-      var rating = $('<p>').text('Rating: ' + response.Rated);
-      $('#resultCard').append(title, poster, runtime, rating, cast, plot);
-
-    });
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     $.ajax({
       url: ytQuery,
