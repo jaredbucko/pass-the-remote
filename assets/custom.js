@@ -4,8 +4,6 @@ var userInputs = {};
 // movie recommendation function
 function movieRecommendation() {
 
-  era = modern;
-
   var settings = {
     "async": true,
     "crossDomain": true,
@@ -49,8 +47,6 @@ function movieRecommendation() {
 
 // TV recommendation function
 function tvRecommendation() {
-
-  era = modern;
 
   var settings = {
     "async": true,
