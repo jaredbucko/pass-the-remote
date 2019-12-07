@@ -7,7 +7,7 @@ function movieRecommendation() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://api.themoviedb.org/3/discover/movie?with_genres=" + userInputs[1] + "&vote_average.gte=" + userInputs[3] + "&primary_release_date.gte=" + userInputs[2] + "&page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
+    "url": "https://api.themoviedb.org/3/discover/movie?with_genres=" + userInputs[1] + userInputs[3] + userInputs[2] + "&page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
     "method": "GET",
     "headers": {},
     "data": "{}",
@@ -51,7 +51,7 @@ function tvRecommendation() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://api.themoviedb.org/3/discover/tv?include_null_first_air_dates=false&with_genres=" + userInputs[1] + "&vote_average.gte=" + userInputs[3] + "&timezone=America%2FNew_York&page=1&first_air_date.gte=" + userInputs[2] + "&sort_by=popularity.desc&language=en-US&with_original_language=en&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
+    "url": "https://api.themoviedb.org/3/discover/tv?include_null_first_air_dates=false&with_genres=" + userInputs[1] + userInputs[3] + "&timezone=America%2FNew_York&page=1" + userInputs[2] + "&sort_by=popularity.desc&language=en-US&with_original_language=en&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
     "method": "GET",
     "headers": {},
     "data": "{}"
@@ -119,8 +119,14 @@ $('.card2btn').click(function() {
 });
 
 $('.card3btn').click(function() {
-  var userEra = $(this).attr("data-era");
-  userInputs[2] = userEra;
+  if (userInputs[0] === "movie") {
+    var userEra = $(this).attr("data-movieDate");
+    userInputs[2] = userEra;
+  } else {
+    var userEra = $(this).attr("data-tvDate");
+    userInputs[2] = userEra;
+  }
+
   $(function () {
     $('#promptCard3').hide()
   });
