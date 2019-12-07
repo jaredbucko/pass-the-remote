@@ -93,9 +93,9 @@
       <div class="card">
         <div class="card-content">
           <h4>Are you looking for something modern (after 2000) or classic (before 2000)?</h4>
-          <button class="btn card3btn" data-era="2000-01-01">Modern</button>
-          <button class="btn card3btn" data-era="1999-12-31">Classic</button>
-          <button class="btn card3btn" data-era="1900-01-01">Surprise me!</button>
+          <button class="btn card3btn" data-movieDate="&primary_release_date.gte=2000-01-01" data-tvDate="&first_air_date.gte=2000-01-01">Modern</button>
+          <button class="btn card3btn" data-movieDate="&primary_release_date.lte=1999-12-31" data-tvDate="&first_air_date.lte=1999-12-31">Classic</button>
+          <button class="btn card3btn" data-movieDate="&primary_release_date.gte=1900-01-01" data-tvDate="&first_air_date.gte=1900-01-01">Surprise me!</button>
         </div>
       </div>
     </div>
@@ -104,9 +104,9 @@
       <div class="card">
         <div class="card-content">
           <h4>Are you interested in something so bad it's good or something critic-approved?</h4>
-          <button class="btn card4btn" data-rating="6.99">THE ROOM is my favorite movie!</button>
-          <button class="btn card4btn" data-rating="7">"Certified Fresh" only.</button>
-          <button class="btn card4btn" data-rating="3">¯\_(ツ)_/¯</button>
+          <button class="btn card4btn" data-rating="&vote_average.lte=6.99">THE ROOM is my favorite movie!</button>
+          <button class="btn card4btn" data-rating="&vote_average.gte=7">"Certified Fresh" only.</button>
+          <button class="btn card4btn" data-rating="&vote_average.gte=1">¯\_(ツ)_/¯</button>
         </div>
       </div>
     </div>
