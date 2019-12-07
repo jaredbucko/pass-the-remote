@@ -57,3 +57,12 @@ main {
     height: 30px;
     float: right;
 }
+
+.btn {
+    margin: 5px 5px 5px 5px;
+    background-color: #477b65;
+}
+
+.page-footer {
+    padding: 0;
+}

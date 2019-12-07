@@ -20,7 +20,7 @@ $.ajax(settings).done(function (response) {
   console.log(response);
 });
 
-// PTR recommendation function
+// movie recommendation function
 function movieRecommendation() {
 
   era = modern;
@@ -68,7 +68,7 @@ function movieRecommendation() {
 
 movieRecommendation();
 
-// PTR tv recommendation function
+// TV recommendation function
 function tvRecommendation() {
 
   era = modern;
@@ -92,15 +92,7 @@ function tvRecommendation() {
 
 tvRecommendation();
 
-
-
-
-// hide other cards on load
-$(function () {
-  $('#promptCard1, #promptCard2, #promptCard3, #promptCard4, #loadingCard, #resultCard').hide();
-});
-
-// function that Animation.css needs
+// animate.css
 function animateCSS(element, animationName, callback) {
   const node = document.querySelector(element)
   node.classList.add('animated', animationName)
@@ -115,79 +107,73 @@ function animateCSS(element, animationName, callback) {
   node.addEventListener('animationend', handleAnimationEnd)
 }
 
-// Button onclick function with animation through all Questionnaire cards //
-$('#startBtn').click (function(){
-  animateCSS('#startBtn', 'zoomOutRight')
-});
-
-  $(function () {
+// Button onclick function with animation through all Questionnaire cards
+$('#startBtn').click(function() {
+  $(function() {
     $('#introCard').hide()
   });
-
-  $(function () {
+  $(function() {
     $('#promptCard1').show()
-    animateCSS('#promptCard1', 'fadeInLeft')
+    animateCSS('#promptCard1', 'fadeIn')
   });
 });
 
-$('#promptCard1').click (function(){
+$('.card1btn').click(function() {
   $(function () {
     $('#promptCard1').hide()
   });
 
-  $(function () {
+  $(function() {
     $('#promptCard2').show()
-    animateCSS('#promptCard2', 'fadeInRight')
+    animateCSS('#promptCard2', 'fadeIn')
   });
 });
 
-$('#promptCard2').click (function(){
+$('.card2btn').click(function() {
   $(function () {
     $('#promptCard2').hide()
   });
 
   $(function () {
     $('#promptCard3').show()
-    animateCSS('#promptCard3', 'fadeInLeft')
+    animateCSS('#promptCard3', 'fadeIn')
   });
 });
 
-$('#promptCard3').click (function(){
+$('.card3btn').click(function() {
   $(function () {
     $('#promptCard3').hide()
   });
 
-  $(function () {
+  $(function() {
     $('#promptCard4').show()
-    animateCSS('#promptCard4', 'fadeInRight')
+    animateCSS('#promptCard4', 'fadeIn')
   });
 });
 
 // Show loading card
-
-$('#promptCard4').click (function(){
+$('.card4btn').click (function(){
   $(function () {
     $('#promptCard4').hide()
   });
 
   $(function () {
     $('#loadingCard').show()
-    animateCSS('#loadingCard', 'fadeInUp')
+    animateCSS('#loadingCard', 'fadeIn')
   });
 });
 
 // Show result card
 
 // need to put animation delay for result card to show after x seconds
-
-$('#loadingCard').click (function(){
+$('#loadingCard').click(function (){
   $(function () {
     $('loading').hide()
   });
 
-  $(function () {
+  $(function() {
     $('#resultCard').show()
-    animateCSS('#resultCard', 'fadeInUp')
+    animateCSS('#resultCard', 'fadeIn')
   });
 });
 
