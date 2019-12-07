@@ -7,7 +7,7 @@ function movieRecommendation() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://api.themoviedb.org/3/discover/movie?with_genres=" + userInputs[1] + userInputs[3] + userInputs[2] + "&page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
+    "url": "https://api.themoviedb.org/3/discover/movie?with_genres=" + userInputs[1] + userInputs[3] + userInputs[2] + "&page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&with_original_language=en&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
     "method": "GET",
     "headers": {},
     "data": "{}",
@@ -34,7 +34,7 @@ function movieRecommendation() {
 
       var poster = $('<img>').attr('src', response.Poster);
       console.log(poster);
-      var title = $('<h2>').text(response.Title);
+      var title = $('<p>').text(response.Title);
       console.log(title);
       var cast = $('<p>').text('Main Cast: ' + response.Actors);
       console.log(cast);
@@ -42,7 +42,7 @@ function movieRecommendation() {
       console.log(plot);
       var release = $('<p>').text('Released: ' + response.Released);
       var rating = $('<p>').text('Rating: ' + response.Rated);
-      $('#resultCard').append(title, poster, release, rating, cast, plot);
+      $('#resultCard').append(poster, title, release, rating, cast, plot);
 
     });
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
@@ -138,7 +138,7 @@ $('#startBtn').click(function() {
   });
   $(function() {
     $('#promptCard1').show()
-    animateCSS('#promptCard1', 'slideInRight')
+    animateCSS('#promptCard1', 'fadeIn')
   });
 });
 
@@ -151,7 +151,7 @@ $('.card1btn').click(function() {
 
   $(function() {
     $('#promptCard2').show()
-    animateCSS('#promptCard2', 'slideInRight')
+    animateCSS('#promptCard2', 'fadeIn')
   });
 });
 
@@ -164,7 +164,7 @@ $('.card2btn').click(function() {
 
   $(function () {
     $('#promptCard3').show()
-    animateCSS('#promptCard3', 'slideInRight')
+    animateCSS('#promptCard3', 'fadeIn')
   });
 });
 
@@ -183,18 +183,28 @@ $('.card3btn').click(function() {
 
   $(function() {
     $('#promptCard4').show()
-    animateCSS('#promptCard4', 'slideInRight')
+    animateCSS('#promptCard4', 'fadeIn')
   });
 });
 
+// function for displaying results
+var displayResults = function() {
+  $('#loadingCard').hide()
+  $(function() {
+    $('#results').show()
+    animateCSS('#results', 'fadeIn')
+  });
+};
+
 // Show loading card
 $('.card4btn').click (function(){
+  // set final parameter in userInputs object
   var userRating = $(this).attr("data-rating");
   userInputs[3] = userRating;
   $(function () {
     $('#promptCard4').hide()
   });
-
+  // show loading card and run recommendation function
   $(function () {
     $('#loadingCard').show()
     animateCSS('#loadingCard', 'slideInUp')
@@ -205,18 +215,6 @@ $('.card4btn').click (function(){
       tvRecommendation();
     }
   });
-});
-
-// Show result card
-
-// need to put animation delay for result card to show after x seconds
-$('#loadingCard').click(function (){
-  $(function () {
-    $('loading').hide()
-  });
-
-  $(function() {
-    $('#resultCard').show()
-    animateCSS('#resultCard', 'fadeIn')
-  });
+  // after 2 seconds, display results
+  setTimeout(displayResults, 4000);
 });
