@@ -110,11 +110,12 @@ function animateCSS(element, animationName, callback) {
 // Button onclick function with animation through all Questionnaire cards
 $('#startBtn').click(function() {
   $(function() {
+    animateCSS('#introCard', 'slideOutLeft')
     $('#introCard').hide()
   });
   $(function() {
     $('#promptCard1').show()
-    animateCSS('#promptCard1', 'fadeIn')
+    animateCSS('#promptCard1', 'slideInRight')
   });
 });
 
@@ -125,7 +126,7 @@ $('.card1btn').click(function() {
 
   $(function() {
     $('#promptCard2').show()
-    animateCSS('#promptCard2', 'fadeIn')
+    animateCSS('#promptCard2', 'slideInRight')
   });
 });
 
@@ -136,7 +137,7 @@ $('.card2btn').click(function() {
 
   $(function () {
     $('#promptCard3').show()
-    animateCSS('#promptCard3', 'fadeIn')
+    animateCSS('#promptCard3', 'slideInRight')
   });
 });
 
@@ -147,7 +148,7 @@ $('.card3btn').click(function() {
 
   $(function() {
     $('#promptCard4').show()
-    animateCSS('#promptCard4', 'fadeIn')
+    animateCSS('#promptCard4', 'slideInRight')
   });
 });
 
@@ -159,7 +160,7 @@ $('.card4btn').click (function(){
 
   $(function () {
     $('#loadingCard').show()
-    animateCSS('#loadingCard', 'fadeIn')
+    animateCSS('#loadingCard', 'slideInUp')
   });
 });
 
@@ -175,9 +176,4 @@ $('#loadingCard').click(function (){
     $('#resultCard').show()
     animateCSS('#resultCard', 'fadeIn')
   });
-});
-
-// javascript from materialize for hamburger nav
-$(document).ready(function(){
-  $('.sidenav').sidenav();
 });

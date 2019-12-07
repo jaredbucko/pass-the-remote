@@ -6,8 +6,10 @@
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!--Import materialize.css-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="assets/materialize.css">
+  <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- what is this meta tag for? -->
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- ref to our style.css -->
   <link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -23,10 +25,8 @@
 
 <body>
 
-  <!--Navbar (if we want it) -->
-  <!-- Nav turns to hamburger when sized for mobile-->
   <nav>
-      <div class="navbar-fixed">
+    <div class="navbar-fixed">
       <nav style="background-color: #501b1d">  
         <a href="#!" class="brand-logo"></a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -40,7 +40,6 @@
       <li><a href="">something</a></li>
     </ul>
 
-  <!-- Main Container with card(s) -->
   <main>
 
     <h1>Pass the Remote</h1>
@@ -53,7 +52,6 @@
           <p>Just answer a few questions and we'll recommend something you might like!</p>
           <br>
           <button class="btn waves-effect waves-light btn-large" id="startBtn"><i class="material-icons right">local_movies</i>Pass The Remote</button>
-          <!--other icon options: movie_creation, movie_filter, videogame_asset, local_movies, local_play, -->
         </div>
       </div>
     </div>
@@ -93,9 +91,9 @@
       <div class="card">
         <div class="card-content">
           <h4>Are you looking for something modern (after 2000) or classic (before 2000)?</h4>
-          <button class="btn card3btn">Modern</button>
-          <button class="btn card3btn">Classic</button>
-          <button class="btn card3btn">Surprise me!</button>
+          <button class="btn card3btn" data-year="2000-01-01">Modern</button>
+          <button class="btn card3btn" data-year="1999-12-31">Classic</button>
+          <button class="btn card3btn" data-year="1900-01-01">Surprise me!</button>
         </div>
       </div>
     </div>
@@ -104,9 +102,9 @@
       <div class="card">
         <div class="card-content">
           <h4>Are you interested in something so bad it's good or something critic-approved?</h4>
-          <button class="btn card4btn">THE ROOM is my favorite movie!</button>
-          <button class="btn card4btn">"Certified Fresh" only.</button>
-          <button class="btn card4btn">¯\_(ツ)_/¯</button>
+          <button class="btn card4btn" data-rating="6.99">THE ROOM is my favorite movie!</button>
+          <button class="btn card4btn" data-rating="7">"Certified Fresh" only.</button>
+          <button class="btn card4btn" data-rating="3">¯\_(ツ)_/¯</button>
         </div>
       </div>
     </div>
@@ -137,7 +135,7 @@
   </footer>
  
   <!-- materialize js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="assets/materialize.js"></script>
   <!-- jquery -->
   <script src="assets/jquery.js"></script>
   <!-- custom javascript -->
