@@ -76,13 +76,15 @@ function tvRecommendation() {
     var x = parseInt(Math.random()*response.results.length);
     var series = response.results[x].original_name;
     console.log(series);
-    var poster = $('<img>').attr('src', response.results[x].poster_path);
-    var title = $('<p>').text(response.results[x].name);
+    // posters not available on TMDb for free accounts :(
+    // var poster = $('<img>').attr('src', response.results[x].poster_path);
+    var title = $('<h3>').text(response.results[x].name);
     var plot = $('<p>').text('Synopsis: ' + response.results[x].overview);
-    var runtime = $('<p>').text('Aired: ' + response.results[x].first_air_date);
-    $('#resultCard').append(title, poster, runtime, rating, cast, plot);
+    var airDate = $('<p>').text('Aired: ' + response.results[x].first_air_date);
+    $('#resultCard').append(title, airDate, plot);
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
+    
     $.ajax({
       url: ytQuery,
       method: "GET"
