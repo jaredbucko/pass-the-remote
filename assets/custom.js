@@ -41,7 +41,7 @@ function movieRecommendation() {
       method: "GET"
     }).then(function(response) {
       var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
-      $("#resultCard").append(trailer);
+      $("#embedTrailer").append(trailer);
       });
 
   });
@@ -79,8 +79,8 @@ function tvRecommendation() {
       url: ytQuery,
       method: "GET"
     }).then(function(response) {
-      var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
-      $("#resultCard").append(trailer);
+      var trailer = $("<iframe>").attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
+      $("#embedTrailer").append(trailer);
       });
 
   });
