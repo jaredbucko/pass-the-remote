@@ -5,20 +5,18 @@
   <meta charset="UTF-8">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis&display=swap" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="assets/materialize.css">
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- what is this meta tag for? -->
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- ref to our style.css -->
+  <!-- custom css -->
   <link rel="stylesheet" type="text/css" href="assets/style.css">
    <!-- plot.ly -->
    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <!-- font awesome -->
   <script src="https://kit.fontawesome.com/eb2106c888.js" crossorigin="anonymous"></script>
-  <!-- google fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis&display=swap" rel="stylesheet">
   <!-- animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <!-- page name -->
@@ -58,7 +56,7 @@
       </div>
     </div>
 
-    <div class="container" id="promptCard1" hidden>
+    <div class="container" id="promptCard1">
       <div class="card">
         <div class="card-content">
           <h4>What are you in the mood to watch?</h4>
@@ -68,7 +66,7 @@
       </div>
     </div>
 
-    <div class="container" id="promptCard2" hidden>
+    <div class="container" id="promptCard2">
       <div class="card">
         <div class="card-content">
           <h4>Do you have a particular genre in mind?</h4>
@@ -89,7 +87,7 @@
       </div>
     </div>
 
-    <div class="container" id="promptCard3" hidden>
+    <div class="container" id="promptCard3">
       <div class="card">
         <div class="card-content">
           <h4>Are you looking for something modern (after 2000) or classic (before 2000)?</h4>
@@ -100,7 +98,7 @@
       </div>
     </div>
 
-    <div class="container" id="promptCard4" hidden>
+    <div class="container" id="promptCard4">
       <div class="card">
         <div class="card-content">
           <h4>Are you interested in something so bad it's good or something critic-approved?</h4>
@@ -111,7 +109,7 @@
       </div>
     </div>
 
-    <div class="container" id="loadingCard" hidden>
+    <div class="container" id="loadingCard">
       <div class="card">
         <div class="card-content">
           <h4>Calculating result...</h4>
@@ -120,13 +118,13 @@
       </div>
     </div>
 
-    <div class="container" id="results" hidden>
+    <div class="container" id="results">
       <div class="card">
         <div  id="resultCard" class="card-content"></div>
       </div>
     </div>
     
-    <div class="container" id="resultBtns" hidden>
+    <div class="container" id="resultBtns">
       <button class="btn" id="newRecommendation">Try Again</button>
       <button class="btn" id="startOver">Start Over</button>
     </div>
