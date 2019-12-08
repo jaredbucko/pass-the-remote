@@ -49,12 +49,13 @@ p {
     padding: 5px 0 5px 0;
 }
 
-main {
-    flex: 1 0 auto;
-  }
+footer {
+    margin-top: 10px;
+}
 
 .page-footer {
     background-color: #501b1d;
+    padding: 0;
 }
 
 #tmdb-icon {
@@ -65,8 +66,4 @@ main {
 .btn {
     margin: 5px 5px 5px 5px;
     background-color: #477b65;
-}
-
-.page-footer {
-    padding: 0;
 }
