@@ -16,7 +16,7 @@ function movieRecommendation() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     var x = parseInt(Math.random()*response.results.length);
-    var movie = response.results[x].original_title;
+    var movie = response.results[x].title;
 
     $.ajax({
       url: "http://www.omdbapi.com/?apikey=63f86544&t=" + movie,
