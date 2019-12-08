@@ -14,32 +14,20 @@ function movieRecommendation() {
   }
   
   $.ajax(settings).done(function (response) {
-    console.log(response);
     var x = parseInt(Math.random()*response.results.length);
     var movie = response.results[x].original_title;
-    console.log(movie);
 
     $.ajax({
       url: "http://www.omdbapi.com/?apikey=63f86544&t=" + movie,
       type: "GET",
     }).then(function(response) {
-      console.log(response);
       var imdb = parseFloat(response.Ratings[0].Value)*10;
-      console.log(imdb);
       var rotten = parseInt(response.Ratings[1].Value);
-      console.log(rotten);
       var meta = parseInt(response.Ratings[2].Value);
-      console.log(meta);
-
-
       var poster = $('<img>').attr('src', response.Poster);
-      console.log(poster);
       var title = $('<p>').text(response.Title);
-      console.log(title);
       var cast = $('<p>').text('Main Cast: ' + response.Actors);
-      console.log(cast);
       var plot = $('<p>').text('Synopsis: ' + response.Plot);
-      console.log(plot);
       var release = $('<p>').text('Released: ' + response.Released);
       var rating = $('<p>').text('Rating: ' + response.Rated);
       $('#resultCard').append(poster, title, release, rating, cast, plot);
@@ -50,7 +38,6 @@ function movieRecommendation() {
       url: ytQuery,
       method: "GET"
     }).then(function(response) {
-      console.log(response)
       var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
       $("#resultCard").append(trailer);
       });
@@ -72,12 +59,8 @@ function tvRecommendation() {
   }
   
   $.ajax(settings).done(function (response) {
-    console.log(response);
     var x = parseInt(Math.random()*response.results.length);
     var series = response.results[x].original_name;
-    console.log(series);
-    // posters not available on TMDb for free accounts :(
-    // var poster = $('<img>').attr('src', response.results[x].poster_path);
     var title = $('<h3>').text(response.results[x].name);
     var plot = $('<p>').text('Synopsis: ' + response.results[x].overview);
     var airDate = $('<p>').text('Aired: ' + response.results[x].first_air_date);
@@ -89,7 +72,6 @@ function tvRecommendation() {
       url: ytQuery,
       method: "GET"
     }).then(function(response) {
-      console.log(response)
       var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
       $("#resultCard").append(trailer);
       });
@@ -171,11 +153,11 @@ $('.card3btn').click(function() {
 // function for displaying results
 var displayResults = function() {
   $('#loadingCard').hide()
+  $('#results').show()
+  $("#resultBtns").show()
   $(function() {
-    $('#results').show()
     animateCSS('#results', 'fadeIn')
-    $("#resultBtns").show();
-    animateCSS('#resultBtns', 'slideInUp');
+    animateCSS('#resultBtns', 'slideInUp')
     $("#newRecommendation").click(function(){
       $("#resultCard").empty();
       if (userInputs[0] === "movie") {
@@ -202,7 +184,6 @@ $('.card4btn').click (function(){
   $(function () {
     $('#loadingCard').show()
     animateCSS('#loadingCard', 'slideInUp')
-    console.log(userInputs);
     if (userInputs[0] === "movie") {
       movieRecommendation();
     } else {
