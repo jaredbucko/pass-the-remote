@@ -1,3 +1,7 @@
+#promptCard1, #promptCard2, #promptCard3, #promptCard4, #loadingCard, #results, #resultBtns {
+    display: none;
+}
+
 body {
     background-color: #adadad; 
     display: flex;
@@ -51,6 +55,9 @@ p {
 
 footer {
     margin-top: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .page-footer {
