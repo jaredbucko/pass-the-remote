@@ -1,5 +1,5 @@
 // global variables
-var userInputs = {};
+var userInputs = [];
 
 // movie recommendation function
 function movieRecommendation() {
@@ -22,6 +22,7 @@ function movieRecommendation() {
       url: "http://www.omdbapi.com/?apikey=63f86544&t=" + movie,
       type: "GET",
     }).then(function(response) {
+      console.log(response);
       var imdb = parseFloat(response.Ratings[0].Value)*10;
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
@@ -102,6 +103,7 @@ function animateCSS(element, animationName, callback) {
 
 // Button onclick function with animation through all Questionnaire cards
 $('#startBtn').click(function() {
+  userInputs = [];
   $(function() {
     $('#introCard').hide()
   });
@@ -173,7 +175,10 @@ var displayResults = function() {
       }
     });
     $("#startOver").click(function(){
-      location.reload(true);
+      $("#results").hide();
+      $("#resultCard").empty();
+      $("#resultBtns").hide();
+      $("#introCard").show();
     });
   });
 };
