@@ -26,7 +26,10 @@ function movieRecommendation() {
       var imdb = parseFloat(response.Ratings[0].Value)*10;
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
-      var poster = $('<img>').attr('src', response.Poster);
+      var poster = $('<img>').attr({
+        class: "responsive-Image",
+        src: response.Poster
+      });
       var title = $('<h3>').text(response.Title);
       var cast = $('<p>').text('Main Cast: ' + response.Actors);
       var plot = $('<p>').text('Synopsis: ' + response.Plot);
