@@ -115,7 +115,6 @@ function animateCSS(element, animationName, callback) {
 // Button onclick function with animation through all Questionnaire cards
 $('#startBtn').click(function() {
   $(function() {
-    animateCSS('#introCard', 'slideOutLeft')
     $('#introCard').hide()
   });
   $(function() {
@@ -175,6 +174,19 @@ var displayResults = function() {
   $(function() {
     $('#results').show()
     animateCSS('#results', 'fadeIn')
+    $("#resultBtns").show();
+    animateCSS('#resultBtns', 'slideInUp');
+    $("#newRecommendation").click(function(){
+      $("#resultCard").empty();
+      if (userInputs[0] === "movie") {
+        movieRecommendation();
+      } else {
+        tvRecommendation();
+      }
+    });
+    $("#startOver").click(function(){
+      location.reload(true);
+    });
   });
 };
 
@@ -198,5 +210,5 @@ $('.card4btn').click (function(){
     }
   });
   // after 2 seconds, display results
-  setTimeout(displayResults, 4000);
+  setTimeout(displayResults, 3000);
 });
