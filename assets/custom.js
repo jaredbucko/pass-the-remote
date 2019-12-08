@@ -27,7 +27,7 @@ function movieRecommendation() {
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
       var poster = $('<img>').attr({
-        class: "responsive-Image",
+        class: "responsive-img",
         src: response.Poster
       });
       var title = $('<h3>').text(response.Title);
