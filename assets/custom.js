@@ -14,6 +14,7 @@ function movieRecommendation() {
   }
   
   $.ajax(settings).done(function (response) {
+    console.log(response);
     var x = parseInt(Math.random()*response.results.length);
     var movie = response.results[x].original_title;
 
@@ -25,7 +26,7 @@ function movieRecommendation() {
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
       var poster = $('<img>').attr('src', response.Poster);
-      var title = $('<p>').text(response.Title);
+      var title = $('<h3>').text(response.Title);
       var cast = $('<p>').text('Main Cast: ' + response.Actors);
       var plot = $('<p>').text('Synopsis: ' + response.Plot);
       var release = $('<p>').text('Released: ' + response.Released);
@@ -59,12 +60,17 @@ function tvRecommendation() {
   }
   
   $.ajax(settings).done(function (response) {
+    console.log(response);
     var x = parseInt(Math.random()*response.results.length);
     var series = response.results[x].original_name;
+    var poster = $('<img>').attr({
+      class: "responsive-img",
+      src: "https://image.tmdb.org/t/p/w500/" + response.results[x].poster_path
+    });
     var title = $('<h3>').text(response.results[x].name);
     var plot = $('<p>').text('Synopsis: ' + response.results[x].overview);
     var airDate = $('<p>').text('Aired: ' + response.results[x].first_air_date);
-    $('#resultCard').append(title, airDate, plot);
+    $('#resultCard').append(poster, title, airDate, plot);
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     
