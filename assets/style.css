@@ -1,3 +1,7 @@
+#promptCard1, #promptCard2, #promptCard3, #promptCard4, #loadingCard, #results, #resultBtns {
+    display: none;
+}
+
 body {
     background-color: #adadad; 
     display: flex;
@@ -49,12 +53,14 @@ p {
     padding: 5px 0 5px 0;
 }
 
-main {
-    flex: 1 0 auto;
-  }
+footer {
+    margin-top: 10px;
+    width: 100%;
+}
 
 .page-footer {
     background-color: #501b1d;
+    padding: 0;
 }
 
 #tmdb-icon {
@@ -67,6 +73,6 @@ main {
     background-color: #477b65;
 }
 
-.page-footer {
-    padding: 0;
+img {
+    width: auto;
 }
