@@ -173,24 +173,27 @@ var displayResults = function() {
   $(function() {
     animateCSS('#results', 'fadeIn')
     animateCSS('#resultBtns', 'slideInUp')
-    $("#newRecommendation").click(function(){
-      $("#resultCard").empty();
-      if (userInputs[0] === "movie") {
-        movieRecommendation();
-      } else {
-        $("#resultCard").empty();
-        tvRecommendation();
-      };
-    });
-    $("#startOver").click(function(){
-      $("#results").hide();
-      $("#poster").empty();
-      $("#resultCard").empty();
-      $("#resultBtns").hide();
-      $("#introCard").show();
-    });
   });
 };
+
+// click function for next recommendation
+$("#newRecommendation").click(function(){
+  $("#resultCard").empty();
+  if (userInputs[0] === "movie") {
+    movieRecommendation();
+  } else {
+    tvRecommendation();
+  };
+});
+
+// click function for start over
+$("#startOver").click(function(){
+  $("#results").hide();
+  $("#poster").empty();
+  $("#resultCard").empty();
+  $("#resultBtns").hide();
+  $("#introCard").show();
+});
 
 // Show loading card
 $('.card4btn').click (function(){
