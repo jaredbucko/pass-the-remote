@@ -43,7 +43,7 @@ function movieRecommendation() {
       }];
       
       var layout = { 
-        title: 'Critic Ratings',
+        title: 'Ratings',
         font: {size: 18},
       };
 
@@ -238,5 +238,5 @@ $('.card4btn').click (function(){
     }
   });
   // after 3 seconds, display results
-  setTimeout(displayResults, 3000);
+  setTimeout(displayResults, 4000);
 });
