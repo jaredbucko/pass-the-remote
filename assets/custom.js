@@ -19,7 +19,7 @@ function movieRecommendation() {
     var movie = response.results[x].title;
 
     $.ajax({
-      url: "http://www.omdbapi.com/?apikey=63f86544&t=" + movie,
+      url: "https://www.omdbapi.com/?apikey=63f86544&t=" + movie,
       type: "GET",
     }).then(function(response) {
       console.log(response);
