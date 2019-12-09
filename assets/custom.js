@@ -1,5 +1,5 @@
 // global variables
-var userInputs = {};
+var userInputs = [];
 
 // movie recommendation function
 function movieRecommendation() {
@@ -16,22 +16,28 @@ function movieRecommendation() {
   $.ajax(settings).done(function (response) {
     console.log(response);
     var x = parseInt(Math.random()*response.results.length);
-    var movie = response.results[x].original_title;
+    var movie = response.results[x].title;
 
     $.ajax({
       url: "http://www.omdbapi.com/?apikey=63f86544&t=" + movie,
       type: "GET",
     }).then(function(response) {
+      console.log(response);
       var imdb = parseFloat(response.Ratings[0].Value)*10;
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
-      var poster = $('<img>').attr('src', response.Poster);
+      var poster = $('<img>').attr({
+        class: "responsive-img",
+        src: response.Poster
+      });
       var title = $('<h3>').text(response.Title);
-      var cast = $('<p>').text('Main Cast: ' + response.Actors);
-      var plot = $('<p>').text('Synopsis: ' + response.Plot);
-      var release = $('<p>').text('Released: ' + response.Released);
-      var rating = $('<p>').text('Rating: ' + response.Rated);
-      $('#resultCard').append(poster, title, release, rating, cast, plot);
+      var cast = $('<p>').addClass("flow-text").text('Main Cast: ' + response.Actors);
+      var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.Plot);
+      var release = $('<p>').addClass("flow-text").text('Released: ' + response.Released);
+      var rating = $('<p>').addClass("flow-text").text('Rating: ' + response.Rated);
+      var br = $('<br>');
+      $("#poster").append(poster);
+      $('#resultCard').append(title, release, rating, cast, plot, br);
 
     });
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
@@ -40,7 +46,7 @@ function movieRecommendation() {
       method: "GET"
     }).then(function(response) {
       var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
-      $("#resultCard").append(trailer);
+      $("#embedTrailer").append(trailer);
       });
 
   });
@@ -68,9 +74,11 @@ function tvRecommendation() {
       src: "https://image.tmdb.org/t/p/w500/" + response.results[x].poster_path
     });
     var title = $('<h3>').text(response.results[x].name);
-    var plot = $('<p>').text('Synopsis: ' + response.results[x].overview);
-    var airDate = $('<p>').text('Aired: ' + response.results[x].first_air_date);
-    $('#resultCard').append(poster, title, airDate, plot);
+    var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.results[x].overview);
+    var airDate = $('<p>').addClass("flow-text").text('Aired: ' + response.results[x].first_air_date);
+    var br = $('<br>');
+    $("#poster").append(poster);
+    $('#resultCard').append(title, airDate, plot, br);
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     
@@ -78,8 +86,8 @@ function tvRecommendation() {
       url: ytQuery,
       method: "GET"
     }).then(function(response) {
-      var trailer = $("<iframe>").attr("src", "https://www.youtube.com/embed/" + response.items[0].id.videoId)
-      $("#resultCard").append(trailer);
+      var trailer = $("<iframe>").attr('src', "https://www.youtube.com/embed/" + response.items[0].id.videoId);
+      $("#embedTrailer").append(trailer);
       });
 
   });
@@ -102,6 +110,7 @@ function animateCSS(element, animationName, callback) {
 
 // Button onclick function with animation through all Questionnaire cards
 $('#startBtn').click(function() {
+  userInputs = [];
   $(function() {
     $('#introCard').hide()
   });
@@ -165,6 +174,7 @@ var displayResults = function() {
     animateCSS('#results', 'fadeIn')
     animateCSS('#resultBtns', 'slideInUp')
     $("#newRecommendation").click(function(){
+      $("#poster").empty();
       $("#resultCard").empty();
       if (userInputs[0] === "movie") {
         movieRecommendation();
@@ -173,7 +183,11 @@ var displayResults = function() {
       }
     });
     $("#startOver").click(function(){
-      location.reload(true);
+      $("#results").hide();
+      $("#poster").empty();
+      $("#resultCard").empty();
+      $("#resultBtns").hide();
+      $("#introCard").show();
     });
   });
 };
