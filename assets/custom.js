@@ -26,6 +26,23 @@ function movieRecommendation() {
       var imdb = parseFloat(response.Ratings[0].Value)*10;
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
+      var data = [{
+        x: ['IMDB', 'Rotten Tomatoes', 'Metacritic'],
+        y: [imdb, rotten, meta],
+        marker:{
+          color: ['rgb(245,197,23)', 'rgb(250,50,9)', 'rgb(1,51,100)'],
+          width: [0.8, 0.8, 0.8]
+        },
+        type: 'bar'
+      }];
+      
+      var layout = { 
+        title: 'Critic Ratings',
+        font: {size: 18},
+      };
+
+      Plotly.newPlot('ratingsDiv', data, layout, {responsive: true}, {displayModeBar: false});
+
       var poster = $('<img>').attr({
         class: "responsive-img",
         src: response.Poster

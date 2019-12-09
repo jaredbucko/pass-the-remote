@@ -76,3 +76,7 @@ footer {
 img {
     width: auto;
 }
+
+.ratingsDiv{
+  max-height: 150px;
+}
