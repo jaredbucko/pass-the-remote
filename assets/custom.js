@@ -31,11 +31,12 @@ function movieRecommendation() {
         src: response.Poster
       });
       var title = $('<h3>').text(response.Title);
-      var cast = $('<p>').text('Main Cast: ' + response.Actors);
-      var plot = $('<p>').text('Synopsis: ' + response.Plot);
-      var release = $('<p>').text('Released: ' + response.Released);
-      var rating = $('<p>').text('Rating: ' + response.Rated);
-      $('#resultCard').append(poster, title, release, rating, cast, plot);
+      var cast = $('<p>').addClass("flow-text").text('Main Cast: ' + response.Actors);
+      var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.Plot);
+      var release = $('<p>').addClass("flow-text").text('Released: ' + response.Released);
+      var rating = $('<p>').addClass("flow-text").text('Rating: ' + response.Rated);
+      $("#poster").append(poster);
+      $('#resultCard').append(title, release, rating, cast, plot);
 
     });
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
@@ -72,8 +73,8 @@ function tvRecommendation() {
       src: "https://image.tmdb.org/t/p/w500/" + response.results[x].poster_path
     });
     var title = $('<h3>').text(response.results[x].name);
-    var plot = $('<p>').text('Synopsis: ' + response.results[x].overview);
-    var airDate = $('<p>').text('Aired: ' + response.results[x].first_air_date);
+    var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.results[x].overview);
+    var airDate = $('<p>').addClass("flow-text").text('Aired: ' + response.results[x].first_air_date);
     $('#resultCard').append(poster, title, airDate, plot);
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
