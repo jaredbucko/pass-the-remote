@@ -77,7 +77,8 @@ function tvRecommendation() {
     var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.results[x].overview);
     var airDate = $('<p>').addClass("flow-text").text('Aired: ' + response.results[x].first_air_date);
     var br = $('<br>');
-    $('#resultCard').append(poster, title, airDate, plot, br);
+    $("#poster").append(poster);
+    $('#resultCard').append(title, airDate, plot, br);
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     
@@ -173,6 +174,7 @@ var displayResults = function() {
     animateCSS('#results', 'fadeIn')
     animateCSS('#resultBtns', 'slideInUp')
     $("#newRecommendation").click(function(){
+      $("#poster").empty();
       $("#resultCard").empty();
       if (userInputs[0] === "movie") {
         movieRecommendation();
@@ -182,6 +184,7 @@ var displayResults = function() {
     });
     $("#startOver").click(function(){
       $("#results").hide();
+      $("#poster").empty();
       $("#resultCard").empty();
       $("#resultBtns").hide();
       $("#introCard").show();
