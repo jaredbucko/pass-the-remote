@@ -1,6 +1,12 @@
 // global variables
 var userInputs = [];
 
+// materialize navbar
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, {});
+});
+
 // movie recommendation function
 function movieRecommendation() {
 
@@ -110,6 +116,7 @@ function tvRecommendation() {
   });
     
 };
+
 // animate.css
 function animateCSS(element, animationName, callback) {
   const node = document.querySelector(element)
