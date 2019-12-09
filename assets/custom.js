@@ -35,8 +35,9 @@ function movieRecommendation() {
       var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.Plot);
       var release = $('<p>').addClass("flow-text").text('Released: ' + response.Released);
       var rating = $('<p>').addClass("flow-text").text('Rating: ' + response.Rated);
+      var br = $('<br>');
       $("#poster").append(poster);
-      $('#resultCard').append(title, release, rating, cast, plot);
+      $('#resultCard').append(title, release, rating, cast, plot, br);
 
     });
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
@@ -75,7 +76,8 @@ function tvRecommendation() {
     var title = $('<h3>').text(response.results[x].name);
     var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.results[x].overview);
     var airDate = $('<p>').addClass("flow-text").text('Aired: ' + response.results[x].first_air_date);
-    $('#resultCard').append(poster, title, airDate, plot);
+    var br = $('<br>');
+    $('#resultCard').append(poster, title, airDate, plot, br);
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     
