@@ -36,7 +36,7 @@ function movieRecommendation() {
       var release = $('<p>').addClass("flow-text").text('Released: ' + response.Released);
       var rating = $('<p>').addClass("flow-text").text('Rating: ' + response.Rated);
       var br = $('<br>');
-      $("#poster").append(poster);
+      $("#poster").html(poster);
       $('#resultCard').append(title, release, rating, cast, plot, br);
 
     });
@@ -65,7 +65,7 @@ function tvRecommendation() {
     "data": "{}"
   }
   
-  $.ajax(settings).done(function (response) {
+  $.ajax(settings).done(function(response) {
     console.log(response);
     var x = parseInt(Math.random()*response.results.length);
     var series = response.results[x].original_name;
@@ -77,7 +77,7 @@ function tvRecommendation() {
     var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.results[x].overview);
     var airDate = $('<p>').addClass("flow-text").text('Aired: ' + response.results[x].first_air_date);
     var br = $('<br>');
-    $("#poster").append(poster);
+    $("#poster").html(poster);
     $('#resultCard').append(title, airDate, plot, br);
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
@@ -174,13 +174,13 @@ var displayResults = function() {
     animateCSS('#results', 'fadeIn')
     animateCSS('#resultBtns', 'slideInUp')
     $("#newRecommendation").click(function(){
-      $("#poster").empty();
       $("#resultCard").empty();
       if (userInputs[0] === "movie") {
         movieRecommendation();
       } else {
+        $("#resultCard").empty();
         tvRecommendation();
-      }
+      };
     });
     $("#startOver").click(function(){
       $("#results").hide();
