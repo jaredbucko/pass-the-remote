@@ -2,6 +2,24 @@
     display: none;
 }
 
+nav {
+    background-color: #501b1d
+}
+
+#navbar {
+    margin-bottom: 10px;
+}
+
+a {
+    text-align: center;
+}
+
+#brandLogo {
+    color: azure;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 32px;
+}
+
 body {
     background-color: #adadad; 
     display: flex;
