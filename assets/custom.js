@@ -208,6 +208,7 @@ $("#newRecommendation").click(function(){
   } else {
     tvRecommendation();
   };
+  $('html, body').animate({scrollTop:0}, 'slow');
 });
 
 // click function for start over
