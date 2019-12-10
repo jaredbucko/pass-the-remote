@@ -238,6 +238,6 @@ $('.card4btn').click (function(){
       tvRecommendation();
     }
   });
-  // after 3 seconds, display results
+  // after 4 seconds, display results
   setTimeout(displayResults, 4000);
 });
