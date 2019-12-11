@@ -21,7 +21,7 @@ a {
 }
 
 body {
-    background-image: linear-gradient(to bottom, #adadad, #9e9d9f, #918d8f, #847d7f, #786e6e);
+    background-color: #ADADAD;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
