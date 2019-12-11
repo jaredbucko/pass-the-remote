@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis:400,700&display=swap" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="assets/materialize.css">
   <!--Let browser know website is optimized for mobile-->
@@ -28,7 +28,7 @@
   <div class="navbar-fixed" id="topnav">
     <nav>
       <div class="nav-wrapper">
-        <a href="#!" class="brand-logo center" id="brandLogo">Pass the Remote</a>
+        <a href="index.html" class="brand-logo center" id="brandLogo">Pass the Remote</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="left hide-on-med-and-down">
           <li><a href="index.html">Home</a></li>
@@ -46,19 +46,50 @@
       <li><a href="about.html"><h4>About</h4></a></li>
     </ul>
   </div>
+  
+  <main>
 
-
-
-
-
-
-
-
-
-
+    <div class="container animated" id="aboutCard">
+      <div class="card main-section">
+        <div class="col s12 card-content black-text" id="about">
+          <h4 class="margin">About</h4>
+          <p class="flow-text"> There is so much content to search through these days which makes it that much harder to settle down on what to watch. </p>
+            <img src="assets/images/remote.gif" class="responsive">
+            <p class="flow-text"> Countless times we've found ourselves wasting unnecessary amounts time just trying to find a show or movie.  </p>
+            <img src="assets/images/tv.gif" class="responsive">
+            
+            <br>
+            <br>
+          <p class="flow-text" style="font-weight: 700"> Our solution? </p>
+          <br>
+          <p class="flow-text"> Pass the Remote! </p>
+          <img src="assets/images/happy.gif" class="responsive">
+          <p class="flow-text"> Using relevant movie and rating databases we created a quick questionnaire that tailors your ideal movie or show and randomly generates a result. </p>
+          <br>
+          
+        </div>
+      </div>
+    </div>
 
 
 
     
+  
+  </main>
+        
+  <!--footer-->
+  <footer class="page-footer">
+    <div class="footer-copyright">
+      <div class="container">© 2019 Copyright<img src="assets/tmbd-logo.png" id="tmdb-icon"  alt="The Movie Database"></div>
+    </div>
+  </footer>
+ 
+  <!-- materialize js-->
+  <script src="assets/materialize.js"></script>
+  <!-- jquery -->
+  <script src="assets/jquery.js"></script>
+  <!-- custom javascript -->
+  <script src="assets/custom.js"></script>
+  
 </body>
 </html>

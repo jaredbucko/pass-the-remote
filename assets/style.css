@@ -91,3 +91,8 @@ img {
 .plotly {
     display: none;
 }
+
+.responsive {
+    width: 30%;
+    height: auto;
+  }
