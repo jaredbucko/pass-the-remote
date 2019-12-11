@@ -94,3 +94,8 @@ img {
 .ratingsDiv{
   max-height: 150px;
 }
+
+#mainArea {
+    display: flex;
+    margin-top: 10px;
+}
