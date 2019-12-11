@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis:400,700" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="assets/materialize.css">
   <!--Let browser know website is optimized for mobile-->
@@ -26,17 +26,26 @@
 <body>
 
   <div class="navbar-fixed" id="topnav">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="index.html" class="brand-logo center" id="brandLogo">Pass the Remote</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="index.html" class="brand-logo center" id="brandLogo">Pass the Remote</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+      </nav>
+    </div>
+  
+    <div class="navbar-fixed hide-on-med-and-down" id="desktopNav">
+      <nav class="valign-wrapper">
+        <div class="brand-logo center">
+          <ul>
+            <li><a href="index.html" class="desktopLinks"><h5>Home</h5></a></li>
+            <li><a href="index.html" class="desktopLinks"><h5>Movies</h5></a></li>
+            <li><a href="index.html" class="desktopLinks"><h5>TV</h5></a></li>
+            <li><a href="about.html" class="desktopLinks"><h5>About</h5></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   
   <div class="sidenav valign-wrapper" id="mobile-demo">
     <ul style="width: 100%;">
@@ -52,7 +61,7 @@
     <div class="container animated" id="aboutCard">
       <div class="card main-section">
         <div class="col s12 card-content black-text" id="about">
-          <h4 class="margin">About</h4>
+          <h4 class="margin">What is Pass the Remote?</h4>
           <p class="flow-text"> There is so much content to search through these days which makes it that much harder to settle down on what to watch. </p>
             <img src="assets/images/remote.gif" class="responsive">
             <p class="flow-text"> Countless times we've found ourselves wasting unnecessary amounts time just trying to find a show or movie.  </p>

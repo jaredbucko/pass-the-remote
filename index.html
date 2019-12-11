@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis:400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Dosis:400,700" rel="stylesheet">
   <!--Import materialize.css-->
   <link rel="stylesheet" href="assets/materialize.css">
   <!--Let browser know website is optimized for mobile-->
@@ -30,9 +30,18 @@
       <div class="nav-wrapper">
         <a href="index.html" class="brand-logo center" id="brandLogo">Pass the Remote</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
+      </div>
+    </nav>
+  </div>
+
+  <div class="navbar-fixed hide-on-med-and-down">
+    <nav class="valign-wrapper teal darken-4" id="desktopNav">
+      <div class="brand-logo center">
+        <ul>
+          <li><a href="index.html" class="desktopLinks"><h5>Home</h5></a></li>
+          <li><a href="index.html" class="desktopLinks"><h5>Movies</h5></a></li>
+          <li><a href="index.html" class="desktopLinks"><h5>TV</h5></a></li>
+          <li><a href="about.html" class="desktopLinks"><h5>About</h5></a></li>
         </ul>
       </div>
     </nav>
@@ -51,12 +60,12 @@
 
     <div class="container animated" id="introCard">
       <div class="card main-section">
-        <div class="col s12 card-content black-text" id="prompt">
+        <div class="card-content black-text" id="prompt">
           <h4 class="margin">Quick Start</h4>
           <p class="flow-text">Feeling indecisive in a sea of movies and television? </p>
           <p class="flow-text">Just answer a few questions and we'll recommend something you might like!</p>
           <br>
-          <button class="btn #004d40 teal darken-4 btn-large flow-text hoverable" id="startBtn"><i class="material-icons right">local_movies</i>Pass The Remote</button>
+          <button class="btn #004d40 teal darken-4 btn-large hoverable" id="startBtn"><i class="material-icons right">local_movies</i>Pass The Remote</button>
         </div>
       </div>
     </div>
@@ -107,8 +116,8 @@
       <div class="card">
         <div class="card-content">
           <h4>Are you interested in something so bad it's good or something critic-approved?</h4>
-          <button class="btn card4btn #004d40 teal darken-4 hoverable" data-rating="&vote_average.lte=6.99">I love B movies.</button>
-          <button class="btn card4btn #004d40 teal darken-4 hoverable" data-rating="&vote_average.gte=7">I'm a bit of movie snob.</button>
+          <button class="btn card4btn #004d40 teal darken-4 hoverable" data-rating="&vote_average.lte=6.99">So bad it's good.</button>
+          <button class="btn card4btn #004d40 teal darken-4 hoverable" data-rating="&vote_average.gte=7">Critic-approved.</button>
           <button class="btn card4btn #004d40 teal darken-4 hoverable" data-rating="&vote_average.gte=1">I'm not picky.</button>
         </div>
       </div>
@@ -126,19 +135,22 @@
     <div class="container" id="results">
       <div class="card">
         <div class="card-content">
-          <div class="container" id="poster"></div>
-          <div id="resultCard"></div>
-          <div class="container" id="ratingsDiv">
-            <img id="jpg-export"></img>
+          <div class="row">
+            <div class="col s12 l4" id="poster"></div>
+            <div class="col l4" id="resultCard"></div>
+            <div class="col l4">
+              <div class="container" id="ratingsDiv"><img id="jpg-export"></img></div>
+              <div class="video-container" id="embedTrailer"></div>
+            </div>
           </div>
-          <div class="video-container" id="embedTrailer"></div>
+          <div class="row">
+            <div class="container" id="resultBtns" style="margin-top: 15px;">
+              <button class="btn #004d40 teal darken-4 hoverable" id="newRecommendation">Next Recommendation</button>
+              <button class="btn #004d40 teal darken-4 hoverable" id="startOver">Start Over</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <div class="container" id="resultBtns">
-      <button class="btn #004d40 teal darken-4 hoverable" id="newRecommendation">Next Recommendation</button>
-      <button class="btn #004d40 teal darken-4 hoverable" id="startOver">Start Over</button>
     </div>
   
   </main>
