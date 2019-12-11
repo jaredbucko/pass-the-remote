@@ -3,7 +3,7 @@
 }
 
 nav {
-    background-color: #501b1d
+    background-color: #501313
 }
 
 #topnav {
@@ -21,7 +21,7 @@ a {
 }
 
 body {
-    background-color: #adadad; 
+    background-image: linear-gradient(to bottom, #adadad, #9e9d9f, #918d8f, #847d7f, #786e6e);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -50,13 +50,6 @@ h4 {
     font-family: 'Bebas Neue', cursive;
 }
 
-
-#pass-start {
-    background-color: #17252a;
-    text-align: center;
-    display: flex;
-}
-
 #start-card {
     font-size: 16pt;
 }
@@ -73,7 +66,7 @@ footer {
 }
 
 .page-footer {
-    background-color: #501b1d;
+    background-color: #501313;
     padding: 0;
 }
 
@@ -84,7 +77,7 @@ footer {
 
 .btn {
     margin: 5px 5px 5px 5px;
-    background-color: #477b65;
+
 }
 
 img {
