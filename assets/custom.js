@@ -29,6 +29,21 @@ function movieRecommendation() {
       type: "GET",
     }).then(function(response) {
       console.log(response);
+      // get metadata from omdb and write to card
+      var poster = $('<img>').attr({
+        class: "responsive-img",
+        src: response.Poster
+      });
+      var title = $('<h3>').text(response.Title);
+      var director = $('<p>').addClass("flow-text").text('Director: ' + response.Director);
+      var cast = $('<p>').addClass("flow-text").text('Main Cast: ' + response.Actors);
+      var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.Plot);
+      var release = $('<p>').addClass("flow-text").text('Released: ' + response.Released);
+      var rating = $('<p>').addClass("flow-text").text('Rating: ' + response.Rated);
+      var br = $('<br>');
+      $("#poster").html(poster);
+      $('#resultCard').append(title, release, rating, cast, plot, br);
+      // get ratings from omdb and generate plotly graph
       var imdb = parseFloat(response.Ratings[0].Value)*10;
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
@@ -42,27 +57,13 @@ function movieRecommendation() {
         },
         type: 'bar'
       }];
-      
       var layout = { 
         title: 'Ratings',
         font: {size: 18},
       };
       Plotly.newPlot('ratingsDiv', data, layout, {responsive: true, displayModeBar: false},);
-
-      var poster = $('<img>').attr({
-        class: "responsive-img",
-        src: response.Poster
-      });
-      var title = $('<h3>').text(response.Title);
-      var cast = $('<p>').addClass("flow-text").text('Main Cast: ' + response.Actors);
-      var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.Plot);
-      var release = $('<p>').addClass("flow-text").text('Released: ' + response.Released);
-      var rating = $('<p>').addClass("flow-text").text('Rating: ' + response.Rated);
-      var br = $('<br>');
-      $("#poster").html(poster);
-      $('#resultCard').append(title, release, rating, cast, plot, br);
-
     });
+
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer+&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     $.ajax({
       url: ytQuery,
@@ -96,15 +97,22 @@ function tvRecommendation() {
       class: "responsive-img",
       src: "https://image.tmdb.org/t/p/w500/" + response.results[x].poster_path
     });
-    var title = $('<h3>').text(response.results[x].name);
+    var title = response.results[x].name;
+    var name = $('<h3>').text(title);
     var plot = $('<p>').addClass("flow-text").text('Synopsis: ' + response.results[x].overview);
     var airDate = $('<p>').addClass("flow-text").text('Aired: ' + response.results[x].first_air_date);
     var br = $('<br>');
     $("#poster").html(poster);
-    $('#resultCard').append(title, airDate, plot, br);
+    $('#resultCard').append(name, airDate, plot, br);
+
+    $.ajax({
+      url: "https://www.omdbapi.com/?apikey=63f86544&t=" + title,
+      type: "GET",
+    }).then(function(response) {
+      console.log(response);
+    });
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + series + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
-    
     $.ajax({
       url: ytQuery,
       method: "GET"
