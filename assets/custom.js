@@ -42,7 +42,7 @@ function movieRecommendation() {
       var rating = $('<p>').addClass("flow-text").text('Rating: ' + response.Rated);
       var br = $('<br>');
       $("#poster").html(poster);
-      $('#resultCard').append(title, release, rating, cast, plot, br);
+      $('#resultCard').append(title, release, rating, director, cast, plot, br);
       // get ratings from omdb and generate plotly graph
       var imdb = parseFloat(response.Ratings[0].Value)*10;
       var rotten = parseInt(response.Ratings[1].Value);
@@ -62,18 +62,18 @@ function movieRecommendation() {
       
       var layout = { 
         title: 'Critical Ratings',
-        font: {size: 12},
+        font: {size: 24},
       };
       Plotly.newPlot('ratingsDiv', data, layout).then(
         
         function(gd)
          {
-          Plotly.toImage(gd,{height:300,width:300})
+          Plotly.toImage(gd,{height:500,width:1000})
              .then(
                  function(url)
              {
                  img_jpg.attr("src", url);
-                 return Plotly.toImage(gd,{format:'jpeg',height:400,width:400});
+                 return Plotly.toImage(gd,{format:'jpeg',height:500,width:1000});
              }
              )
         });

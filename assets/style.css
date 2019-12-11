@@ -91,6 +91,10 @@ img {
     width: auto;
 }
 
-.ratingsDiv{
-  max-height: 150px;
+#jpg-export{
+  width: 100%;
+}
+
+.plotly {
+    display: none;
 }
