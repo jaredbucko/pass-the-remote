@@ -38,7 +38,7 @@ function movieRecommendation() {
         orientation: 'h',
         marker:{
           color: ['rgb(245,197,23)', 'rgb(250,50,9)', 'rgb(1,51,100)'],
-          width: 0.5
+          width: 0.2
         },
         type: 'bar'
       }];
