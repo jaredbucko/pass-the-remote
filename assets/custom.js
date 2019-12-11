@@ -51,9 +51,15 @@ function movieRecommendation() {
       var meta = parseInt(response.Ratings[2].Value);
       var d3 = Plotly.d3;
       var img_jpg= d3.select('#jpg-export');
+      
+      var xValue = [imdb, rotten, meta];
+
+      var yValue = ['IMDB', 'RT', 'Meta'];
       var data = [{
-        y: ['IMDB', 'RT', 'Metacritic'],
-        x: [imdb, rotten, meta],
+        y: yValue,
+        x: xValue,
+        text: xValue.map(String),
+        textposition: 'auto', 
         orientation: 'h',
         marker:{
           color: ['rgb(245,197,23)', 'rgb(250,50,9)', 'rgb(1,51,100)'],
