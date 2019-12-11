@@ -1,5 +1,7 @@
 // global variables
 var userInputs = [];
+var page = Math.floor(Math.random() * 10) + 1;
+console.log(page);
 
 // materialize navbar
 document.addEventListener('DOMContentLoaded', function() {
@@ -13,7 +15,7 @@ function movieRecommendation() {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://api.themoviedb.org/3/discover/movie?with_genres=" + userInputs[1] + userInputs[3] + userInputs[2] + "&page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&with_original_language=en&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
+    "url": "https://api.themoviedb.org/3/discover/movie?with_genres=" + userInputs[1] + userInputs[3] + userInputs[2] + "&page=" + page + "&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&with_original_language=en&api_key=d12c2969d92f9ef15d80bab89a0cdf8d",
     "method": "GET",
     "headers": {},
     "data": "{}",
@@ -226,6 +228,8 @@ var displayResults = function() {
 // click function for next recommendation
 $("#newRecommendation").click(function(){
   $("#resultCard").empty();
+  var page = Math.floor(Math.random() * 10) + 1;
+  console.log(page);
   if (userInputs[0] === "movie") {
     movieRecommendation();
   } else {
