@@ -39,11 +39,6 @@ main {
     padding: 0 0 0 20px;
 }
 
-h1 {
-    color: azure;
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-}
 
 h3 {
     margin: 10px 0 10px 0;
@@ -55,10 +50,6 @@ h4 {
     font-family: 'Bebas Neue', cursive;
 }
 
-h5 {
-    margin: 0 0 10px 0;
-    font-family: 'Bebas Neue', cursive;
-}
 
 #pass-start {
     background-color: #17252a;
