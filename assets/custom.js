@@ -47,21 +47,36 @@ function movieRecommendation() {
       var imdb = parseFloat(response.Ratings[0].Value)*10;
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
+      var d3 = Plotly.d3;
+      var img_jpg= d3.select('#jpg-export');
       var data = [{
-        y: ['IMDB', 'Rotten Tomatoes', 'Metacritic'],
+        y: ['IMDB', 'RT', 'Metacritic'],
         x: [imdb, rotten, meta],
         orientation: 'h',
         marker:{
           color: ['rgb(245,197,23)', 'rgb(250,50,9)', 'rgb(1,51,100)'],
-          width: 0.2
+          width: 1.5
         },
         type: 'bar'
       }];
+      
       var layout = { 
-        title: 'Ratings',
-        font: {size: 18},
+        title: 'Critical Ratings',
+        font: {size: 12},
       };
-      Plotly.newPlot('ratingsDiv', data, layout, {responsive: true, displayModeBar: false},);
+      Plotly.newPlot('ratingsDiv', data, layout).then(
+        
+        function(gd)
+         {
+          Plotly.toImage(gd,{height:300,width:300})
+             .then(
+                 function(url)
+             {
+                 img_jpg.attr("src", url);
+                 return Plotly.toImage(gd,{format:'jpeg',height:400,width:400});
+             }
+             )
+        });
     });
 
     var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer+&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
