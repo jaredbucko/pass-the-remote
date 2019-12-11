@@ -33,11 +33,12 @@ function movieRecommendation() {
       var rotten = parseInt(response.Ratings[1].Value);
       var meta = parseInt(response.Ratings[2].Value);
       var data = [{
-        x: ['IMDB', 'Rotten Tomatoes', 'Metacritic'],
-        y: [imdb, rotten, meta],
+        y: ['IMDB', 'Rotten Tomatoes', 'Metacritic'],
+        x: [imdb, rotten, meta],
+        orientation: 'h',
         marker:{
           color: ['rgb(245,197,23)', 'rgb(250,50,9)', 'rgb(1,51,100)'],
-          width: [0.8, 0.8, 0.8]
+          width: 0.5
         },
         type: 'bar'
       }];
@@ -46,8 +47,7 @@ function movieRecommendation() {
         title: 'Ratings',
         font: {size: 18},
       };
-
-      Plotly.newPlot('ratingsDiv', data, layout, {responsive: true}, {displayModeBar: false});
+      Plotly.newPlot('ratingsDiv', data, layout, {responsive: true, displayModeBar: false},);
 
       var poster = $('<img>').attr({
         class: "responsive-img",
@@ -63,7 +63,7 @@ function movieRecommendation() {
       $('#resultCard').append(title, release, rating, cast, plot, br);
 
     });
-    var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
+    var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer+&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     $.ajax({
       url: ytQuery,
       method: "GET"
