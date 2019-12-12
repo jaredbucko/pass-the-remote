@@ -4,3 +4,4 @@ Pass the Remote is a fun and easy-to-use web app that gives you a semi-randomize
 ## Screenshot
 
 ## Deployed URL
+https://jaredbucko.github.io/pass-the-remote/index.html
