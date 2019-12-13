@@ -25,6 +25,7 @@ function movieRecommendation() {
     console.log(response);
     var x = parseInt(Math.random()*response.results.length);
     var movie = response.results[x].title;
+    var year = response.results[x].release_date.substring(0, 4);
 
     $.ajax({
       url: "https://www.omdbapi.com/?apikey=63f86544&t=" + movie,
@@ -87,7 +88,7 @@ function movieRecommendation() {
         });
     });
 
-    var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + "+trailer+&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
+    var ytQuery = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=relevance&q=" + movie + year + "+trailer+&key=AIzaSyAs4LN-8AAtpD25meiR3Upyat-7B-nnqck"
     $.ajax({
       url: ytQuery,
       method: "GET"
