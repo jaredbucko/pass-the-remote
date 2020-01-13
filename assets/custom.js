@@ -1,6 +1,6 @@
 // global variables
 var userInputs = [];
-var page = Math.floor(Math.random() * 10) + 1;
+var page = Math.floor(Math.random() * 5) + 1;
 console.log(page);
 
 // materialize navbar
